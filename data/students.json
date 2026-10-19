@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Arun Kumar",
+    "department": "Computer Technology",
+    "year": 3,
+    "email": "arun@example.com"
+  },
+  {
+    "id": 2,
+    "name": "Priya S",
+    "department": "Computer Science",
+    "year": 2,
+    "email": "priya@example.com"
+  },
+  {
+    "id": 3,
+    "name": "Kishore P",
+    "department": "Computer Technology",
+    "year": 3,
+    "email": "kishorep@gmail.com"
+  }
+]

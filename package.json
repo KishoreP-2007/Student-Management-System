@@ -1,0 +1,21 @@
+{
+  "name": "student-management",
+  "version": "1.0.0",
+  "description": "Simple Student Management System using Node.js and JSON",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node app.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "student-management",
+    "json"
+  ],
+  "author": "Kishore",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
