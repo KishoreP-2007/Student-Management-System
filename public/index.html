@@ -10,127 +10,420 @@
     <style>
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            margin: 0;
-            padding: 40px;
+            font-family: "Inter", "Segoe UI", Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1e293b;
             min-height: 100vh;
         }
 
-        .container {
-            max-width: 1000px;
+        /* =========================
+           TOP HEADER
+        ========================= */
+
+        .header {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 28px 20px;
+            box-shadow: 0 4px 20px rgba(79, 70, 229, 0.25);
+        }
+
+        .header-content {
+            max-width: 1150px;
             margin: auto;
-            background: #ffffff;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
         }
 
-        h1 {
-            text-align: center;
-            color: #4a3aff;
-            margin-bottom: 30px;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
         }
 
-        h2 {
-            color: #333;
-            margin-top: 30px;
+        .brand-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            backdrop-filter: blur(10px);
         }
 
-        form {
+        .brand h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .brand p {
+            margin-top: 4px;
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 9px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            max-width: 1150px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        /* =========================
+           STAT CARDS
+        ========================= */
+
+        .stats {
             display: grid;
-            gap: 12px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 25px;
         }
 
-        input,
-        button {
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 7px;
+        .stat-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 3px 15px rgba(15, 23, 42, 0.05);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            background: #eef2ff;
+        }
+
+        .stat-card h3 {
+            font-size: 24px;
+            color: #111827;
+        }
+
+        .stat-card p {
+            color: #64748b;
+            font-size: 13px;
+            margin-top: 3px;
+        }
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 5px 25px rgba(15, 23, 42, 0.06);
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .card-header {
+            padding: 22px 25px;
+            border-bottom: 1px solid #eef0f4;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: #eef2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-header h2 {
+            font-size: 18px;
+            color: #111827;
+        }
+
+        .card-header p {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 3px;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        /* =========================
+           FORM
+        ========================= */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .input-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
         }
 
         input {
-            border: 1px solid #ccc;
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 9px;
+            background: #fafafa;
+            color: #111827;
+            font-size: 14px;
             outline: none;
-            transition: 0.3s;
+            transition: 0.2s ease;
+        }
+
+        input::placeholder {
+            color: #9ca3af;
         }
 
         input:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 5px rgba(102, 126, 234, 0.4);
+            background: white;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
         }
 
-        button {
-            cursor: pointer;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .add-btn {
+            width: 100%;
+            padding: 13px 18px;
             border: none;
-            font-weight: bold;
-            transition: 0.3s;
+            border-radius: 9px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s ease;
         }
 
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 12px rgba(102, 126, 234, 0.4);
+        .add-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 7px 18px rgba(79, 70, 229, 0.25);
+        }
+
+        .add-btn:active {
+            transform: translateY(0);
+        }
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        .table-wrapper {
+            overflow-x: auto;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        th,
-        td {
-            border: 1px solid #e0e0e0;
-            padding: 12px;
-            text-align: left;
+            min-width: 700px;
         }
 
         th {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+            background: #f8fafc;
+            color: #64748b;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            padding: 15px 18px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        tr:nth-child(even) {
-            background: #f7f7ff;
+        td {
+            padding: 16px 18px;
+            border-bottom: 1px solid #eef0f4;
+            font-size: 14px;
+            color: #334155;
         }
 
-        tr:hover {
-            background: #eeeeff;
+        tbody tr {
+            transition: 0.15s ease;
+        }
+
+        tbody tr:hover {
+            background: #f8faff;
+        }
+
+        .student-id {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 32px;
+            height: 28px;
+            padding: 0 8px;
+            border-radius: 7px;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .student-name {
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .department {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #f1f5f9;
+            color: #475569;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .year {
+            color: #475569;
+            font-weight: 600;
+        }
+
+        .email {
+            color: #64748b;
         }
 
         .delete-btn {
-            background: #e74c3c;
             padding: 8px 12px;
+            border: 1px solid #fecaca;
+            border-radius: 7px;
+            background: #fff1f2;
+            color: #dc2626;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s ease;
         }
 
         .delete-btn:hover {
-            background: #c0392b;
-            box-shadow: none;
+            background: #fee2e2;
+            border-color: #fca5a5;
         }
 
-        @media (max-width: 700px) {
-            body {
-                padding: 15px;
+        /* =========================
+           EMPTY STATE
+        ========================= */
+
+        .empty-state {
+            text-align: center;
+            padding: 45px 20px;
+            color: #94a3b8;
+        }
+
+        .empty-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .empty-state h3 {
+            color: #475569;
+            margin-bottom: 5px;
+        }
+
+        .empty-state p {
+            font-size: 13px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #94a3b8;
+            font-size: 12px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .status {
+                align-self: flex-start;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
             }
 
             .container {
-                padding: 20px;
+                margin-top: 25px;
+                padding: 0 12px;
             }
 
-            table {
-                font-size: 14px;
-            }
-
-            th,
-            td {
-                padding: 8px;
+            .card-body {
+                padding: 18px;
             }
         }
     </style>
@@ -138,69 +431,258 @@
 
 <body>
 
-    <div class="container">
+    <!-- HEADER -->
 
-        <h1>🎓 Student Management System</h1>
+    <header class="header">
 
-        <form id="studentForm">
+        <div class="header-content">
 
-            <input
-                type="text"
-                id="name"
-                placeholder="Student Name"
-                required
-            >
+            <div class="brand">
 
-            <input
-                type="text"
-                id="department"
-                placeholder="Department"
-                required
-            >
+                <div class="brand-icon">
+                    🎓
+                </div>
 
-            <input
-                type="number"
-                id="year"
-                placeholder="Year"
-                min="1"
-                max="5"
-                required
-            >
+                <div>
+                    <h1>Student Management System</h1>
+                    <p>Manage student records efficiently</p>
+                </div>
 
-            <input
-                type="email"
-                id="email"
-                placeholder="Email"
-                required
-            >
+            </div>
 
-            <button type="submit">
-                ➕ Add Student
-            </button>
+            <div class="status">
+                <span class="status-dot"></span>
+                System Online
+            </div>
 
-        </form>
+        </div>
 
-        <h2>📋 Students</h2>
+    </header>
 
-        <table>
 
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Department</th>
-                    <th>Year</th>
-                    <th>Email</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
+    <!-- MAIN -->
 
-            <tbody id="studentTableBody">
-            </tbody>
+    <main class="container">
 
-        </table>
+        <!-- STATISTICS -->
 
-    </div>
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👨‍🎓
+                </div>
+
+                <div>
+                    <h3 id="studentCount">0</h3>
+                    <p>Total Students</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🏫
+                </div>
+
+                <div>
+                    <h3>Active</h3>
+                    <p>Student Records</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ☁️
+                </div>
+
+                <div>
+                    <h3>Online</h3>
+                    <p>Database Status</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ADD STUDENT -->
+
+        <section class="card">
+
+            <div class="card-header">
+
+                <div class="card-title">
+
+                    <div class="card-title-icon">
+                        ➕
+                    </div>
+
+                    <div>
+                        <h2>Add New Student</h2>
+                        <p>Enter the student's information below</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="card-body">
+
+                <form id="studentForm">
+
+                    <div class="form-grid">
+
+                        <div class="input-group">
+
+                            <label for="name">
+                                Student Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Enter student name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="department">
+                                Department
+                            </label>
+
+                            <input
+                                type="text"
+                                id="department"
+                                placeholder="e.g. Computer Technology"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="year">
+                                Year
+                            </label>
+
+                            <input
+                                type="number"
+                                id="year"
+                                placeholder="1 - 5"
+                                min="1"
+                                max="5"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="student@example.com"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="button-container">
+
+                        <button
+                            type="submit"
+                            class="add-btn"
+                        >
+                            ➕ Add Student
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- STUDENT TABLE -->
+
+        <section class="card">
+
+            <div class="card-header">
+
+                <div class="card-title">
+
+                    <div class="card-title-icon">
+                        📋
+                    </div>
+
+                    <div>
+                        <h2>Student Records</h2>
+                        <p>View and manage registered students</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Year</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="studentTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        Student Management System • Node.js • Express • MySQL
+    </footer>
+
 
     <script>
 
@@ -210,8 +692,14 @@
         const studentTableBody =
             document.getElementById("studentTableBody");
 
+        const studentCount =
+            document.getElementById("studentCount");
 
-        // Load students
+
+        // =========================
+        // LOAD STUDENTS
+        // =========================
+
         async function loadStudents() {
 
             try {
@@ -219,35 +707,101 @@
                 const response =
                     await fetch("/students");
 
+                if (!response.ok) {
+                    throw new Error("Failed to fetch students");
+                }
+
                 const students =
                     await response.json();
 
                 studentTableBody.innerHTML = "";
+
+                studentCount.textContent = students.length;
+
+
+                // Empty state
+
+                if (students.length === 0) {
+
+                    studentTableBody.innerHTML = `
+                        <tr>
+                            <td colspan="6">
+                                <div class="empty-state">
+                                    <div class="empty-icon">
+                                        👨‍🎓
+                                    </div>
+
+                                    <h3>No Students Found</h3>
+
+                                    <p>
+                                        Add your first student using the form above.
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+
+                    return;
+                }
+
+
+                // Display students
 
                 students.forEach(student => {
 
                     const row =
                         document.createElement("tr");
 
+
                     row.innerHTML = `
-                        <td>${student.id}</td>
-                        <td>${student.name}</td>
-                        <td>${student.department}</td>
-                        <td>${student.year}</td>
-                        <td>${student.email}</td>
 
                         <td>
+                            <span class="student-id">
+                                #${student.id}
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="student-name">
+                                ${student.name}
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="department">
+                                ${student.department}
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="year">
+                                Year ${student.year}
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="email">
+                                ${student.email}
+                            </span>
+                        </td>
+
+                        <td>
+
                             <button
                                 class="delete-btn"
-                                onclick="deleteStudent(${student.id})">
-                                🗑️ Delete
+                                onclick="deleteStudent(${student.id})"
+                            >
+                                🗑 Delete
                             </button>
+
                         </td>
+
                     `;
 
                     studentTableBody.appendChild(row);
 
                 });
+
 
             } catch (error) {
 
@@ -257,23 +811,28 @@
                 );
 
             }
+
         }
 
 
-        // Add student
+        // =========================
+        // ADD STUDENT
+        // =========================
+
         studentForm.addEventListener(
             "submit",
             async function(event) {
 
                 event.preventDefault();
 
+
                 const student = {
 
                     name:
-                        document.getElementById("name").value,
+                        document.getElementById("name").value.trim(),
 
                     department:
-                        document.getElementById("department").value,
+                        document.getElementById("department").value.trim(),
 
                     year:
                         Number(
@@ -281,7 +840,7 @@
                         ),
 
                     email:
-                        document.getElementById("email").value
+                        document.getElementById("email").value.trim()
 
                 };
 
@@ -313,10 +872,11 @@
                     } else {
 
                         alert(
-                            "Failed to add student"
+                            "Failed to add student."
                         );
 
                     }
+
 
                 } catch (error) {
 
@@ -325,13 +885,20 @@
                         error
                     );
 
+                    alert(
+                        "Unable to connect to the server."
+                    );
+
                 }
 
             }
         );
 
 
-        // Delete student
+        // =========================
+        // DELETE STUDENT
+        // =========================
+
         async function deleteStudent(id) {
 
             if (
@@ -361,10 +928,11 @@
                 } else {
 
                     alert(
-                        "Failed to delete student"
+                        "Failed to delete student."
                     );
 
                 }
+
 
             } catch (error) {
 
@@ -373,12 +941,19 @@
                     error
                 );
 
+                alert(
+                    "Unable to connect to the server."
+                );
+
             }
 
         }
 
 
-        // Initial load
+        // =========================
+        // INITIAL LOAD
+        // =========================
+
         loadStudents();
 
     </script>
